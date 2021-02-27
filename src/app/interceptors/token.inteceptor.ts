@@ -5,6 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpResponse,
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Loading } from '../service/loading.service';
@@ -22,12 +23,12 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     Loading._loading.next(true);
-    return next.handle(request).pipe(map((e) => {
+    return next.handle(request).pipe(tap((e) => {
       if (e instanceof HttpResponse) {
         Loading._loading.next(false);
-
       }
-      return e;
+    }, () => {
+      Loading._loading.next(false);
     }));
   }
 }

@@ -3,22 +3,31 @@
     <mat-card-title>დაწესებულებები</mat-card-title>
   </mat-card-header>
   <mat-card-content fxLayout="column">
-    <form [formGroup]="searchForm" (submit)="loadData()" fxFlex='60' fxLayout="row" fxLayoutAlign="space-between">
-      <mat-form-field appearance="outline" fxFlex="45">
-        <mat-label>საიდენტიფიკაციო</mat-label>
-        <input matInput formControlName="pid" type="text" />
-      </mat-form-field>
+    <form [formGroup]="searchForm" (submit)="loadData()">
+      <div fxLayout="row" fxLayoutAlign="space-between" fxFlex>
+        <mat-form-field appearance="outline" fxFlex="45">
+          <mat-label>საიდენტიფიკაციო</mat-label>
+          <input matInput formControlName="pid" type="text" />
+        </mat-form-field>
 
-      <mat-form-field appearance="outline" fxFlex="45">
-        <mat-label>დასახელება</mat-label>
-        <input matInput formControlName="name" type="text" />
-      </mat-form-field>
-      <div fxFlex="5" fxLayout="column" fxLayoutAlign="center">
-        <button mat-icon-button>
-          <mat-icon>search</mat-icon>
-        </button>
+        <mat-form-field appearance="outline" fxFlex="45">
+          <mat-label>დასახელება</mat-label>
+          <input matInput formControlName="name" type="text" />
+        </mat-form-field>
+        <div fxFlex="5" fxLayout="column" fxLayoutAlign="center">
+          <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
       </div>
+      <div fxFlex></div>
     </form>
+
+    <div fxLayout='row' fxLayoutAlign="end">
+      <button mat-button (click)="addInstitution()">
+        <mat-icon>add</mat-icon> დამატება
+      </button>
+    </div>
     <app-table [data]="data" [columns]="columns" [paging]="paging" [actions]='actions' (pageChange)="page($event)">
     </app-table>
   </mat-card-content>

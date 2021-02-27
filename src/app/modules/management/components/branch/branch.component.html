@@ -1,0 +1,27 @@
+<div class="container" *ngIf="branch" fxLayout="column">
+  <div fxFlex fxLayout="column">
+    <h2>ფილიალი: {{branch.address}}</h2>
+    <div fxFlex fxLayout="column">
+      <mat-form-field appearance="outline">
+        <mat-label>მისამართი</mat-label>
+        <input matInput [(ngModel)]="branch.address" [readonly]="true" type="text" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>მენეჯერი</mat-label>
+        <input matInput [(ngModel)]="branch.manager_name" [readonly]="true" type="text" />
+      </mat-form-field>
+
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <h3>პერსონალი</h3>
+    <button (click)="addPersonal()" mat-button>
+      <mat-icon>add</mat-icon> დამატება
+    </button>
+  </div>
+  <app-table [data]="branch.personal" [columns]="columns" [actions]='actions'>
+  </app-table>
+
+</div>

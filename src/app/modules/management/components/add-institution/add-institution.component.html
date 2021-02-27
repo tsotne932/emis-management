@@ -1,0 +1,31 @@
+<div fxFlex fxLayout="column">
+  <h2>დაწესებულების {{id?'რედაქტირება':'დამატება'}}</h2>
+  <form [formGroup]="form" (submit)="addInstitution()" fxLayout="column" fxLayoutAlign="space-between" fxFlex>
+
+    <mat-form-field appearance="outline" fxFlex="45">
+      <mat-label>საიდენტიფიკაციო</mat-label>
+      <input matInput formControlName="pid" type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" fxFlex="45">
+      <mat-label>დასახელება</mat-label>
+      <input matInput formControlName="name" type="text" />
+      <mat-error *ngIf="form.get('name').invalid">{{errorMessage}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" fxFlex="45">
+      <mat-label>ტელეფონი</mat-label>
+      <input matInput formControlName="number" type="text" />
+      <mat-error *ngIf="form.get('number').invalid">{{errorMessage}}</mat-error>
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutAlign="end">
+      <button mat-button [disabled]="form.invalid">
+        შენახვა
+      </button>
+    </div>
+
+    <div fxFlex></div>
+  </form>
+
+</div>

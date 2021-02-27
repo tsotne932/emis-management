@@ -1,0 +1,32 @@
+<div class="container" *ngIf="institution" fxLayout="column">
+  <div fxFlex fxLayout="column">
+    <h2>დაწესებულება: {{institution.name}}</h2>
+    <div fxFlex fxLayout="column">
+      <mat-form-field appearance="outline">
+        <mat-label>საიდენტიფიკაციო</mat-label>
+        <input matInput [(ngModel)]="institution.pid" [readonly]="true" type="text" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>დასახელება</mat-label>
+        <input matInput [(ngModel)]="institution.name" [readonly]="true" type="text" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>ტელეფონი</mat-label>
+        <input matInput [(ngModel)]="institution.number" [readonly]="true" type="text" />
+      </mat-form-field>
+
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <h3>ფილიალები</h3>
+    <button (click)="addBranch()" mat-button>
+      <mat-icon>add</mat-icon> დამატება
+    </button>
+  </div>
+  <app-table [data]="institution.branches" [columns]="columns" [actions]='actions'>
+  </app-table>
+
+</div>

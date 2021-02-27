@@ -10,9 +10,14 @@ import { MatTableModule } from '@angular/material/table';
 import { TableComponent } from './components/table/table.component';
 import { ManagementService } from './service/management.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AddInstitutionComponent } from './components/add-institution/add-institution.component';
+import { InstitutionComponent } from './components/institution/institution.component';
+import { AddBranchComponent } from './components/add-branch/add-branch.component';
+import { BranchComponent } from './components/branch/branch.component';
+import { AddPersonalComponent } from './components/add-personal/add-personal.component';
 
 @NgModule({
-  declarations: [ManagementComponent, InstitutionsComponent, UsersComponent, TableComponent],
+  declarations: [ManagementComponent, InstitutionsComponent, UsersComponent, TableComponent, AddInstitutionComponent, InstitutionComponent, AddBranchComponent, BranchComponent, AddPersonalComponent],
   imports: [
     SharedModule,
     ManagementRoutingModule,

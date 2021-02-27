@@ -3,15 +3,9 @@
   overflow: hidden;
   .sidenav-container {
     height: 100%;
-    // position: relative;
-    // width: 100%;
-    // max-width: 100%;
-    // display: -moz-flex;
-    // display: flex;
-    // -moz-flex-direction: row;
-    // flex-direction: row;
     .sidenav {
       width: 15%;
+      min-width: 200px;
     }
   }
 

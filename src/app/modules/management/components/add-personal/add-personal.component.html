@@ -1,0 +1,28 @@
+<div fxFlex fxLayout="column">
+  <h2> {{title}}</h2>
+  <form [formGroup]="form" (submit)="addPersonal()" fxLayout="column" fxLayoutAlign="space-between" fxFlex>
+
+    <mat-form-field appearance="outline" fxFlex="45">
+      <mat-label>პირადი ნომერი</mat-label>
+      <input matInput formControlName="pid" type="text" required />
+      <mat-error *ngIf="form.get('pid').invalid">{{errorMessage}}</mat-error>
+
+      <mat-hint>შეიყვანეთ მინიმუმ 11 სიმბოლო</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" fxFlex="45">
+      <mat-label>სახელი</mat-label>
+      <input matInput formControlName="name" type="text" required />
+      <mat-error *ngIf="form.get('name').invalid">{{errorMessage}}</mat-error>
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutAlign="end" *ngIf="key != 'view'">
+      <button mat-button [disabled]="form.invalid">
+        შენახვა
+      </button>
+    </div>
+
+    <div fxFlex></div>
+  </form>
+
+</div>

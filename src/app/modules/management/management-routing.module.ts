@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BranchComponent } from './components/branch/branch.component';
+import { InstitutionComponent } from './components/institution/institution.component';
 import { InstitutionsComponent } from './components/institutions/institutions.component';
 import { UsersComponent } from './components/users/users.component';
 import { ManagementComponent } from './management.component';
@@ -7,7 +9,7 @@ import { ManagementComponent } from './management.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'management',
+    redirectTo: 'management/institutions',
     pathMatch: 'full'
   },
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
       {
         path: 'institutions',
         component: InstitutionsComponent
+      },
+      {
+        path: 'institution/:id',
+        component: InstitutionComponent
+      },
+      {
+        path: 'institution/:institution/branch/:id',
+        component: BranchComponent
       },
       {
         path: 'users',

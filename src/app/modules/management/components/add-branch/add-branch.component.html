@@ -1,0 +1,27 @@
+<div fxFlex fxLayout="column">
+  <h2>დაწესებულება: {{institution_name}} - ფილიალის {{id?'რედაქტირება':'დამატება'}}</h2>
+  <form [formGroup]="form" (submit)="addBranch()" fxLayout="column" fxLayoutAlign="space-between" fxFlex>
+
+    <mat-form-field appearance="outline" fxFlex="45">
+      <mat-label>მისამართო</mat-label>
+      <input matInput formControlName="address" type="text" />
+      <mat-error *ngIf="form.get('address').invalid">{{errorMessage}}</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" fxFlex="45">
+      <mat-label>მენეჯერი</mat-label>
+      <input matInput formControlName="manager_name" type="text" />
+      <mat-error *ngIf="form.get('manager_name').invalid">{{errorMessage}}</mat-error>
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutAlign="end">
+      <button mat-button [disabled]="form.invalid">
+        შენახვა
+      </button>
+    </div>
+
+    <div fxFlex></div>
+  </form>
+
+</div>
