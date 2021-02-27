@@ -6,6 +6,8 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Loading } from '../service/loading.service';
+import { map, tap } from 'rxjs/operators';
 
 
 @Injectable()
@@ -18,6 +20,7 @@ export class TokenInterceptor implements HttpInterceptor {
       });
     }
 
-    return next.handle(request);
+    Loading._loading.next(true);
+    return next.handle(request).pipe(tap(() => Loading._loading.next(false)));
   }
 }

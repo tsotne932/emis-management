@@ -9,7 +9,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [ManagementComponent],
   imports: [
     SharedModule,
-    ManagementRoutingModule
+    ManagementRoutingModule,
+
   ]
 })
 export class ManagementModule { }
