@@ -55,7 +55,7 @@ export class InstitutionsComponent implements OnInit {
   }
 
   loadData() {
-    this._service.getInstitutions(this.searchForm, this.paging).subscribe((res: any) => {
+    this._service.getInstitutions(this.searchForm.value, this.paging).subscribe((res: any) => {
       this.data = res.data
       this.paging.page = res.current_page;
       this.paging.limit = res.per_page;

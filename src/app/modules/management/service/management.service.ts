@@ -8,6 +8,10 @@ export class ManagementService {
   constructor(private _http: HttpClient) { }
 
   getInstitutions(filter: any, paging: Paging) {
-    return this._http.get(`api/institutions?page=${paging.page || 0}`);
+    let params = {};
+    Object.keys(filter).forEach(key => {
+      if (filter[key]) params[key] = filter[key]
+    })
+    return this._http.get(`api/institutions?page=${paging.page || 0}`, { params: params });
   }
 }
