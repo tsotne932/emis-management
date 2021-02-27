@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxLoadingModule } from 'ngx-loading';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [],
   imports: [
@@ -12,7 +12,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     FlexLayoutModule,
     HttpClientModule,
     NgxLoadingModule.forRoot({ animationType: 'wanderingCubes' }),
-
+    MatIconModule
   ],
   exports: [
     CommonModule,
@@ -20,6 +20,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     FlexLayoutModule,
     HttpClientModule,
     NgxLoadingModule,
+    MatIconModule
 
   ],
   providers: [
