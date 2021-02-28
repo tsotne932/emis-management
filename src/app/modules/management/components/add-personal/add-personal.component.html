@@ -4,7 +4,7 @@
 
     <mat-form-field appearance="outline" fxFlex="45">
       <mat-label>პირადი ნომერი</mat-label>
-      <input matInput formControlName="pid" type="text" required />
+      <input matInput formControlName="pid" type="text" required [readonly]="key == 'view'" />
       <mat-error *ngIf="form.get('pid').invalid">{{errorMessage}}</mat-error>
 
       <mat-hint>შეიყვანეთ მინიმუმ 11 სიმბოლო</mat-hint>
@@ -12,7 +12,7 @@
 
     <mat-form-field appearance="outline" fxFlex="45">
       <mat-label>სახელი</mat-label>
-      <input matInput formControlName="name" type="text" required />
+      <input matInput formControlName="name" type="text" required required [readonly]="key == 'view'" />
       <mat-error *ngIf="form.get('name').invalid">{{errorMessage}}</mat-error>
     </mat-form-field>
 

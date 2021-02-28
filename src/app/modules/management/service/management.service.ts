@@ -1,5 +1,6 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { Paging } from 'src/app/interfaces/base/Paging.interface';
 import { Branch } from 'src/app/interfaces/Branch.interface';
@@ -9,7 +10,7 @@ import { AlertService } from 'src/app/service/alert.service';
 @Injectable()
 export class ManagementService {
 
-  constructor(private _http: HttpClient, private _alert: AlertService) { }
+  constructor(private _http: HttpClient, private _alert: AlertService, private _router: Router) { }
 
   getInstitutions(filter: any, paging: Paging) {
     let params = {};
@@ -57,4 +58,10 @@ export class ManagementService {
     });
   }
 
+  responseHandler(res: any) {
+    if (res.status) {
+      this._router.navigate(['/'])
+    }
+    return res;
+  }
 }
