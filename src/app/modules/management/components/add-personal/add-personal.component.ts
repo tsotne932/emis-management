@@ -30,7 +30,7 @@ export class AddPersonalComponent implements OnInit {
 
   initForm(personal: Personal) {
     this.form = this._fb.group({
-      pid: new FormControl(personal.pid, Validators.required),
+      pid: new FormControl(personal.pid),
       name: new FormControl(personal.name, Validators.required),
     })
   }
@@ -51,9 +51,6 @@ export class AddPersonalComponent implements OnInit {
   }
 
   get errorMessage() {
-    if (this.form.get('pid').hasError('required')) {
-      return 'სავალდებულო ველი';
-    }
     if (this.form.get('name').hasError('required')) {
       return 'სავალდებულო ველი';
     }
