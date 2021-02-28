@@ -52,10 +52,10 @@ export class AddPersonalComponent implements OnInit {
 
   get errorMessage() {
     if (this.form.get('pid').hasError('required')) {
-      return 'You must enter a value';
+      return 'სავალდებულო ველი';
     }
     if (this.form.get('name').hasError('required')) {
-      return 'You must enter a value';
+      return 'სავალდებულო ველი';
     }
     return '';
   }
