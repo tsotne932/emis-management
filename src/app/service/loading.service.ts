@@ -1,18 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class Loading {
-
-  public static _loading: BehaviorSubject<any> = new BehaviorSubject(false);
-
-  public static isLoading: Observable<Boolean>;
-
+  public static do: BehaviorSubject<any> = new BehaviorSubject(false);
   constructor() {
-    // Loading._loading.subscribe(loading => {
-    //   Loading.isLoading = loading;
-    // })
   }
 }

@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'emis-management';
   loading: boolean = false;
   constructor() {
-    Loading._loading.subscribe((loading: boolean) => {
+    Loading.do.subscribe((loading: boolean) => {
       setTimeout(() => {
         this.loading = !!loading;
       });

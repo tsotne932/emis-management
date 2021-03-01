@@ -22,13 +22,13 @@ export class TokenInterceptor implements HttpInterceptor {
       });
     }
 
-    Loading._loading.next(true);
+    Loading.do.next(true);
     return next.handle(request).pipe(tap((e) => {
       if (e instanceof HttpResponse) {
-        Loading._loading.next(false);
+        Loading.do.next(false);
       }
     }, () => {
-      Loading._loading.next(false);
+      Loading.do.next(false);
     }));
   }
 }
